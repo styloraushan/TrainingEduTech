@@ -383,8 +383,8 @@ footer {
 }
 
 .shimmer {
-    background: linear-gradient(100deg, #121c3a 25%, #1c2c51 45%, #121c3a 65%);
-    background-size: 200% 100
+    background: linear-gradient(100deg, #121c3a 0%, #121c3a 35%, #27446f 50%, #121c3a 65%, #121c3a 100%);
+    background-size: 300% 100
 }
 
 @media(max-width:780px) {

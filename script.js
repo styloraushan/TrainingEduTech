@@ -1,5 +1,13 @@
 const slides = [...document.querySelectorAll('.hero-slide')];
-window.addEventListener('load',()=>document.body.classList.replace('is-loading','is-loaded'));
+document.querySelectorAll('.brand > span').forEach(brandName=>brandName.textContent="Brunda's Academy");
+document.querySelectorAll('.brand-mark').forEach(brandMark=>brandMark.alt="Brunda's Academy");
+document.querySelector('.footer-bottom > span').textContent="© 2026 Brunda's Academy. All rights reserved.";
+const skeletonStartedAt = Date.now();
+const minimumSkeletonDuration = 2500;
+window.addEventListener('load',()=>{
+  const remainingTime = Math.max(0, minimumSkeletonDuration - (Date.now() - skeletonStartedAt));
+  setTimeout(()=>document.body.classList.replace('is-loading','is-loaded'), remainingTime);
+});
 const scrollTopButton=document.querySelector('.scroll-top');
 const progress=document.querySelector('.scroll-progress'), navWrap=document.querySelector('.nav-wrap');
 window.addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-window.innerHeight;progress.style.transform=`scaleX(${max?window.scrollY/max:0})`;scrollTopButton.classList.toggle('visible',window.scrollY>500);navWrap.classList.toggle('scrolled',window.scrollY>12)},{passive:true});
