@@ -1,0 +1,395 @@
+:root {
+    --ink: #f8fafc;
+    --muted: #94a3b8;
+    --paper: #050a15;
+    --line: rgba(255, 255, 255, .09);
+    --lime: #2563eb;
+    --lime2: #3b82f6;
+    --coral: #06b6d4;
+    --navy: #0a1128
+}
+
+body {
+    background: var(--paper);
+    color: var(--ink)
+}
+
+.announcement {
+    background: #050a15;
+    color: #94a3b8;
+    border-bottom: 1px solid var(--line)
+}
+
+.announcement a {
+    color: #06b6d4
+}
+
+.nav-wrap {
+    background: #0a1128;
+    border-color: var(--line)
+}
+
+.nav-wrap.scrolled {
+    background: #0a1128ed
+}
+
+.brand {
+    color: #f8fafc
+}
+
+.brand-dot {
+    color: #06b6d4
+}
+
+.brand-mark {
+    background: transparent
+}
+
+.nav-links>a:not(.nav-cta),
+.nav-drop button {
+    color: #cbd5e1
+}
+
+.nav-links .active {
+    color: #f8fafc
+}
+
+.nav-cta,
+.btn-primary {
+    background: #2563eb;
+    color: #fff;
+    box-shadow: 0 8px 22px #2563eb3d
+}
+
+.nav-cta:hover,
+.btn-primary:hover {
+    background: #3b82f6
+}
+
+.drop-menu {
+    background: #121c3a;
+    border-color: var(--line);
+    box-shadow: 0 14px 30px #00000040
+}
+
+.drop-menu a {
+    color: #cbd5e1
+}
+
+.drop-menu a:hover {
+    background: #1d2b50
+}
+
+.hero {
+    background: radial-gradient(circle at 85% 12%, #123b6d 0, transparent 28%), radial-gradient(circle at 25% 100%, #0c425a 0, transparent 30%), #0a1128
+}
+
+.orb-one {
+    background: #16356b;
+    opacity: .65
+}
+
+.orb-two {
+    background: #064f63;
+    opacity: .6
+}
+
+.eyebrow,
+.eyebrow.dark {
+    color: #06b6d4
+}
+
+.hero h1 em,
+h2 em {
+    color: #3b82f6
+}
+
+.hero-text,
+.hero-proof {
+    color: #94a3b8
+}
+
+.btn-light {
+    background: #121c3a;
+    color: #f8fafc;
+    border: 1px solid var(--line)
+}
+
+.btn-light:hover {
+    background: #1b2850
+}
+
+.floating-card {
+    background: #121c3a;
+    color: #f8fafc;
+    border: 1px solid var(--line);
+    box-shadow: 0 16px 28px #0000004d
+}
+
+.floating-card small {
+    color: #94a3b8
+}
+
+.mini-icon {
+    background: #2563eb;
+    color: #fff
+}
+
+.stars {
+    color: #06b6d4
+}
+
+.avatars span {
+    border-color: #0a1128
+}
+
+.slide-dots button {
+    background: #64748b
+}
+
+.slide-dots button.active {
+    background: #06b6d4
+}
+
+.hero-controls button {
+    color: #cbd5e1
+}
+
+.trust-bar {
+    background: #0a1128;
+    border-bottom: 1px solid var(--line)
+}
+
+.trust-bar p,
+.trust-bar div {
+    color: #64748b
+}
+
+.section-heading>p,
+.partner-intro>p:not(.eyebrow),
+.contact-info>p:not(.eyebrow) {
+    color: #94a3b8
+}
+
+.course-tabs button {
+    color: #94a3b8;
+    border-color: var(--line)
+}
+
+.course-tabs button.selected,
+.course-tabs button:hover {
+    background: #2563eb;
+    border-color: #2563eb
+}
+
+.course-card,
+.service-card,
+.contact-form {
+    background: #121c3a;
+    border-color: var(--line)
+}
+
+.course-card:hover {
+    box-shadow: 0 18px 33px #00000045
+}
+
+/* Keep the arrow visible against its white circular button in dark mode. */
+.course-img a {
+    color: #0a1128;
+    font-weight: 700;
+}
+
+.course-meta,
+.course-content p {
+    color: #94a3b8
+}
+
+.course-content>a,
+.text-link {
+    color: #06b6d4
+}
+
+.partners {
+    background: #0a1128
+}
+
+.corporate {
+    background: linear-gradient(135deg, #121c3a, #0b2851);
+    border: 1px solid var(--line)
+}
+
+.college {
+    background: linear-gradient(135deg, #0f315e, #0d6a7c);
+    color: #f8fafc
+}
+
+.college li:before,
+.partner-card li:before {
+    color: #06b6d4
+}
+
+.btn-dark {
+    background: #2563eb
+}
+
+.verify {
+    background: linear-gradient(120deg, #07152b, #0a2852)
+}
+
+.verify-copy>p:last-child,
+.verify-form small {
+    color: #94a3b8
+}
+
+.verify-form input {
+    background: #f8fafc
+}
+
+.verify-shape {
+    border-color: #2563eb
+}
+
+.service-card:hover {
+    background: #172a54;
+    border-color: #2563eb
+}
+
+.service-card>span {
+    color: #06b6d4
+}
+
+.service-card p {
+    color: #94a3b8
+}
+
+.career-copy {
+    background: linear-gradient(145deg, #0a1128, #0d3263)
+}
+
+.career-copy>p:not(.eyebrow),
+.career-list {
+    color: #cbd5e1
+}
+
+.contact-details>*>span {
+    background: #12335f;
+    color: #06b6d4
+}
+
+.contact-details small {
+    color: #94a3b8
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    background: #0a1128;
+    border-color: var(--line);
+    color: #f8fafc
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #64748b
+}
+
+.contact-form select {
+    color: #94a3b8
+}
+
+.contact-form option {
+    background: #121c3a
+}
+
+footer {
+    background: #050a15;
+    border-top: 1px solid var(--line)
+}
+
+.footer-top,
+.footer-bottom {
+    border-color: var(--line)
+}
+
+.footer-links a {
+    color: #cbd5e1
+}
+
+.footer-links h4,
+.footer-bottom {
+    color: #64748b
+}
+
+.socials a {
+    border-color: #334155
+}
+
+.scroll-top {
+    background: #2563eb
+}
+
+.scroll-top:hover {
+    background: #06b6d4
+}
+
+.modal-card {
+    background: #121c3a;
+    color: #f8fafc;
+    border: 1px solid var(--line)
+}
+
+.modal-description {
+    color: #94a3b8
+}
+
+.modal-close {
+    background: #1e3156;
+    color: #f8fafc
+}
+
+.modal-details div {
+    background: #0a1128
+}
+
+.modal-details small {
+    color: #94a3b8
+}
+
+.modal-outline {
+    background: #0a1128;
+    border-color: var(--line);
+    color: #f8fafc
+}
+
+.page-skeleton {
+    background: #050a15
+}
+
+.skeleton-nav {
+    background: #0a1128;
+    border-color: var(--line)
+}
+
+.sk-hero {
+    background: #0a1128
+}
+
+.sk-section.tinted {
+    background: #0a1128
+}
+
+.sk-footer {
+    background: #050a15
+}
+
+.shimmer {
+    background: linear-gradient(100deg, #121c3a 25%, #1c2c51 45%, #121c3a 65%);
+    background-size: 200% 100
+}
+
+@media(max-width:780px) {
+    .nav-links {
+        background: #0a1128;
+        border-color: var(--line)
+    }
+}

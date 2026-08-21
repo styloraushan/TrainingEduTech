@@ -1,0 +1,33 @@
+const slides = [...document.querySelectorAll('.hero-slide')];
+window.addEventListener('load',()=>document.body.classList.replace('is-loading','is-loaded'));
+const scrollTopButton=document.querySelector('.scroll-top');
+const progress=document.querySelector('.scroll-progress'), navWrap=document.querySelector('.nav-wrap');
+window.addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-window.innerHeight;progress.style.transform=`scaleX(${max?window.scrollY/max:0})`;scrollTopButton.classList.toggle('visible',window.scrollY>500);navWrap.classList.toggle('scrolled',window.scrollY>12)},{passive:true});
+scrollTopButton.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+const hero=document.querySelector('.hero');
+hero.addEventListener('pointermove',e=>{if(window.innerWidth<=780)return;const rect=hero.getBoundingClientRect();hero.style.setProperty('--hero-x',`${(e.clientX-rect.left-rect.width/2)/55}px`);hero.style.setProperty('--hero-y',`${(e.clientY-rect.top-rect.height/2)/55}px`)});
+hero.addEventListener('pointerleave',()=>{hero.style.setProperty('--hero-x','0px');hero.style.setProperty('--hero-y','0px')});
+const courseModal=document.querySelector('.course-modal');
+const closeCourseModal=()=>{courseModal.classList.remove('open');courseModal.setAttribute('aria-hidden','true')};
+document.querySelectorAll('.course-content>a').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();const card=link.closest('.course-card');const title=card.querySelector('h3').textContent;const description=card.querySelector('p').textContent;const meta=[...card.querySelectorAll('.course-meta span')].filter(item=>item.textContent!=='•').map(item=>item.textContent).join(' · ');courseModal.querySelector('#modal-course-title').textContent=title;courseModal.querySelector('.modal-description').textContent=description;courseModal.querySelector('.modal-duration').textContent=meta;courseModal.querySelector('.modal-enquire').href='#contact';courseModal.classList.add('open');courseModal.setAttribute('aria-hidden','false');courseModal.querySelector('.modal-close').focus()}));
+courseModal.querySelectorAll('.modal-close,.modal-close-button,.modal-backdrop,.modal-enquire').forEach(element=>element.addEventListener('click',closeCourseModal));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCourseModal()});
+const dots = [...document.querySelectorAll('.slide-dots button')];
+let current = 0, timer;
+function showSlide(index) { current = (index + slides.length) % slides.length; slides.forEach((s,i)=>s.classList.toggle('active',i===current)); dots.forEach((d,i)=>d.classList.toggle('active',i===current)); }
+function autoplay(){clearInterval(timer);timer=setInterval(()=>showSlide(current+1),6500)}
+document.querySelector('.next').addEventListener('click',()=>{showSlide(current+1);autoplay()});
+document.querySelector('.previous').addEventListener('click',()=>{showSlide(current-1);autoplay()});
+dots.forEach((dot,i)=>dot.addEventListener('click',()=>{showSlide(i);autoplay()})); autoplay();
+let touchStartX=0;
+document.querySelector('.hero').addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].screenX},{passive:true});
+document.querySelector('.hero').addEventListener('touchend',e=>{const distance=e.changedTouches[0].screenX-touchStartX;if(Math.abs(distance)>45){showSlide(current+(distance<0?1:-1));autoplay()}},{passive:true});
+const toggle=document.querySelector('.menu-toggle'), nav=document.querySelector('.nav-links');
+toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',open)});
+document.querySelectorAll('.nav-drop button').forEach(btn=>btn.addEventListener('click',()=>{if(innerWidth<=680) btn.parentElement.classList.toggle('open')}));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+document.querySelectorAll('.course-tabs button').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.course-tabs button').forEach(tab=>{const selected=tab===button;tab.classList.toggle('selected',selected);tab.setAttribute('aria-selected',selected)});const f=button.dataset.filter;document.querySelectorAll('.course-card').forEach(card=>card.style.display=(f==='all'||card.dataset.category===f)?'block':'none')}));
+document.querySelector('#explore-programs').addEventListener('click',e=>{e.preventDefault();const allProgramsButton=document.querySelector('.course-tabs button[data-filter="all"]');allProgramsButton.click();document.querySelector('#courses').scrollIntoView({behavior:'smooth',block:'start'});document.querySelector('.course-tabs').classList.add('catalog-active');setTimeout(()=>document.querySelector('.course-tabs').classList.remove('catalog-active'),900)});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelector('.verify-form').addEventListener('submit',e=>{e.preventDefault();const msg=e.currentTarget.querySelector('.verify-message');const id=document.querySelector('#certificate').value.trim();msg.textContent=id?'Certificate ID found — this credential is valid.':'Please enter a certificate ID to continue.';msg.classList.toggle('success',!!id)});
+document.querySelector('.contact-form').addEventListener('submit',e=>{e.preventDefault();e.currentTarget.querySelector('.form-message').textContent='Thanks — your enquiry has been sent. We’ll be in touch shortly.';e.currentTarget.reset()});
