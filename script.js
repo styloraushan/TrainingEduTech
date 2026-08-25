@@ -7,8 +7,42 @@ const skeletonStartedAt = Date.now();
 const minimumSkeletonDuration = 2500;
 window.addEventListener('load',()=>{
   const remainingTime = Math.max(0, minimumSkeletonDuration - (Date.now() - skeletonStartedAt));
-  setTimeout(()=>document.body.classList.replace('is-loading','is-loaded'), remainingTime);
+  setTimeout(()=>{
+    document.body.classList.replace('is-loading','is-loaded');
+    openContactPopupOnce();
+  }, remainingTime);
 });
+const contactPopup=document.querySelector('.contact-popup');
+const contactPopupStorageKey='brundas-academy-contact-popup-seen';
+const closeContactPopup=()=>{
+  contactPopup.classList.remove('open');
+  contactPopup.setAttribute('aria-hidden','true');
+  document.body.classList.remove('contact-popup-open');
+  localStorage.setItem(contactPopupStorageKey,'true');
+};
+const openContactPopup=(interest='')=>{
+  if(interest) contactPopup.querySelector('select[name="interest"]').value=interest;
+  setTimeout(()=>{
+    contactPopup.classList.add('open');
+    contactPopup.setAttribute('aria-hidden','false');
+    document.body.classList.add('contact-popup-open');
+    contactPopup.querySelector('input').focus();
+  },600);
+};
+const openContactPopupOnce=()=>{
+  if(!localStorage.getItem(contactPopupStorageKey)) openContactPopup();
+};
+contactPopup.querySelectorAll('[data-contact-popup-close]').forEach(element=>element.addEventListener('click',closeContactPopup));
+contactPopup.querySelector('.contact-popup-form').addEventListener('submit',event=>{
+  event.preventDefault();
+  event.currentTarget.querySelector('.form-message').textContent='Thanks — your enquiry has been sent. We’ll be in touch shortly.';
+  event.currentTarget.reset();
+  localStorage.setItem(contactPopupStorageKey,'true');
+});
+document.querySelectorAll('.service-card a').forEach(link=>link.addEventListener('click',event=>{
+  event.preventDefault();
+  openContactPopup('Digital services');
+}));
 const scrollTopButton=document.querySelector('.scroll-top');
 const progress=document.querySelector('.scroll-progress'), navWrap=document.querySelector('.nav-wrap');
 window.addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-window.innerHeight;progress.style.transform=`scaleX(${max?window.scrollY/max:0})`;scrollTopButton.classList.toggle('visible',window.scrollY>500);navWrap.classList.toggle('scrolled',window.scrollY>12)},{passive:true});
@@ -18,9 +52,8 @@ hero.addEventListener('pointermove',e=>{if(window.innerWidth<=780)return;const r
 hero.addEventListener('pointerleave',()=>{hero.style.setProperty('--hero-x','0px');hero.style.setProperty('--hero-y','0px')});
 const courseModal=document.querySelector('.course-modal');
 const closeCourseModal=()=>{courseModal.classList.remove('open');courseModal.setAttribute('aria-hidden','true')};
-document.querySelectorAll('.course-content>a').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();const card=link.closest('.course-card');const title=card.querySelector('h3').textContent;const description=card.querySelector('p').textContent;const meta=[...card.querySelectorAll('.course-meta span')].filter(item=>item.textContent!=='•').map(item=>item.textContent).join(' · ');courseModal.querySelector('#modal-course-title').textContent=title;courseModal.querySelector('.modal-description').textContent=description;courseModal.querySelector('.modal-duration').textContent=meta;courseModal.querySelector('.modal-enquire').href='#contact';courseModal.classList.add('open');courseModal.setAttribute('aria-hidden','false');courseModal.querySelector('.modal-close').focus()}));
 courseModal.querySelectorAll('.modal-close,.modal-close-button,.modal-backdrop,.modal-enquire').forEach(element=>element.addEventListener('click',closeCourseModal));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCourseModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCourseModal();if(contactPopup.classList.contains('open'))closeContactPopup()}});
 const dots = [...document.querySelectorAll('.slide-dots button')];
 const slideCount = document.querySelector('.slide-count');
 let current = 0, timer;

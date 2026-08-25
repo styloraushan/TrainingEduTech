@@ -8,9 +8,12 @@
 .nav-drop button .chevron{display:inline-block;width:7px;height:7px;margin:0 0 3px 8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s ease}
 .nav-drop:hover button .chevron,.nav-drop.open button .chevron{transform:translateY(3px) rotate(225deg)}
 
+.contact-popup{position:fixed;inset:0;z-index:130;display:grid;place-items:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}.contact-popup.open{opacity:1;visibility:visible}.contact-popup-backdrop{position:absolute;inset:0;background:#112b35b8;backdrop-filter:blur(5px)}.contact-popup-card{position:relative;z-index:1;width:min(460px,100%);padding:38px;background:#fff;border-radius:20px;box-shadow:0 25px 70px #0f252d5e;transform:translateY(18px) scale(.98);transition:transform .3s cubic-bezier(.2,.8,.2,1)}.contact-popup.open .contact-popup-card{transform:translateY(0) scale(1)}.contact-popup-card h2{font-size:38px;letter-spacing:-2.4px;margin:0 0 12px}.contact-popup-card>p:not(.eyebrow){color:var(--muted);font-size:14px;line-height:1.55;margin:0 0 22px}.contact-popup-close{position:absolute;right:16px;top:14px;width:34px;height:34px;border:0;background:#edf2eb;color:var(--ink);border-radius:50%;font-size:25px;line-height:1;cursor:pointer}.contact-popup-form{display:grid;gap:13px}.contact-popup-form label{display:grid;gap:7px;font-size:11px;font-weight:700}.contact-popup-form input,.contact-popup-form select{width:100%;border:1px solid #dde4dd;border-radius:8px;padding:11px;font-size:12px;color:#5d6c66;background:#fff;outline-color:#91c055}.contact-popup-form .btn{justify-content:center;margin-top:4px}.contact-popup-form .form-message{margin:0}.contact-popup-open{overflow:hidden}
+
 @media (max-width:1100px){.nav-links{gap:13px;font-size:12px}.nav-cta{padding:10px}}
 
 @media (max-width:780px){
+  .contact-popup-card{padding:34px 22px 24px}.contact-popup-card h2{font-size:34px}
   .modal-card{padding:34px 22px 24px}.modal-card h2{font-size:34px}.modal-details{grid-template-columns:1fr}.modal-actions{display:grid}.modal-actions .btn,.modal-outline{width:100%}
   .scroll-top{right:16px;bottom:16px;width:44px;height:44px}
   .announcement{font-size:10px;height:31px;gap:10px}.nav-wrap{height:68px}.navbar{padding:0 16px}.brand{font-size:22px}.brand-mark{width:28px;height:28px}
