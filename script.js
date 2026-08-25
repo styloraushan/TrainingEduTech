@@ -1,4 +1,5 @@
 const slides = [...document.querySelectorAll('.hero-slide')];
+slides.forEach(slide=>slide.querySelector('.hero-visual').insertAdjacentHTML('beforeend','<div class="hero-mobile-benefits" aria-label="Programme benefits"><span>▣ Industry-led</span><span>◌ Hands-on labs</span><span>✓ Career support</span></div>'));
 document.querySelectorAll('.brand > span').forEach(brandName=>brandName.textContent="Brunda's Academy");
 document.querySelectorAll('.brand-mark').forEach(brandMark=>brandMark.alt="Brunda's Academy");
 document.querySelector('.footer-bottom > span').textContent="© 2026 Brunda's Academy. All rights reserved.";
@@ -21,8 +22,9 @@ document.querySelectorAll('.course-content>a').forEach(link=>link.addEventListen
 courseModal.querySelectorAll('.modal-close,.modal-close-button,.modal-backdrop,.modal-enquire').forEach(element=>element.addEventListener('click',closeCourseModal));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCourseModal()});
 const dots = [...document.querySelectorAll('.slide-dots button')];
+const slideCount = document.querySelector('.slide-count');
 let current = 0, timer;
-function showSlide(index) { current = (index + slides.length) % slides.length; slides.forEach((s,i)=>s.classList.toggle('active',i===current)); dots.forEach((d,i)=>d.classList.toggle('active',i===current)); }
+function showSlide(index) { current = (index + slides.length) % slides.length; slides.forEach((s,i)=>s.classList.toggle('active',i===current)); dots.forEach((d,i)=>d.classList.toggle('active',i===current)); slideCount.textContent=`${String(current+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`; }
 function autoplay(){clearInterval(timer);timer=setInterval(()=>showSlide(current+1),6500)}
 document.querySelector('.next').addEventListener('click',()=>{showSlide(current+1);autoplay()});
 document.querySelector('.previous').addEventListener('click',()=>{showSlide(current-1);autoplay()});
@@ -37,5 +39,4 @@ document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',
 document.querySelectorAll('.course-tabs button').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.course-tabs button').forEach(tab=>{const selected=tab===button;tab.classList.toggle('selected',selected);tab.setAttribute('aria-selected',selected)});const f=button.dataset.filter;document.querySelectorAll('.course-card').forEach(card=>card.style.display=(f==='all'||card.dataset.category===f)?'block':'none')}));
 document.querySelector('#explore-programs').addEventListener('click',e=>{e.preventDefault();const allProgramsButton=document.querySelector('.course-tabs button[data-filter="all"]');allProgramsButton.click();document.querySelector('#courses').scrollIntoView({behavior:'smooth',block:'start'});document.querySelector('.course-tabs').classList.add('catalog-active');setTimeout(()=>document.querySelector('.course-tabs').classList.remove('catalog-active'),900)});
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-document.querySelector('.verify-form').addEventListener('submit',e=>{e.preventDefault();const msg=e.currentTarget.querySelector('.verify-message');const id=document.querySelector('#certificate').value.trim();msg.textContent=id?'Certificate ID found — this credential is valid.':'Please enter a certificate ID to continue.';msg.classList.toggle('success',!!id)});
 document.querySelector('.contact-form').addEventListener('submit',e=>{e.preventDefault();e.currentTarget.querySelector('.form-message').textContent='Thanks — your enquiry has been sent. We’ll be in touch shortly.';e.currentTarget.reset()});

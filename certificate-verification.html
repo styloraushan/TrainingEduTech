@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Verify a Brunda's Academy certificate." />
+  <title>Certificate Verification | Brunda's Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <link rel="stylesheet" href="certificate-verification.css" />
+</head>
+<body class="verification-page">
+  <div class="announcement"><span>Admissions open for the September cohort</span><a href="index.html#courses">View programs <span>→</span></a></div>
+  <header class="nav-wrap">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="index.html" class="brand"><img class="brand-mark" src="assets/ChatGPT Image Aug 21, 2026, 02_54_29 PM.png" alt="Brunda's Academy" /><span>Brunda's Academy</span></a>
+      <a class="verification-back" href="index.html">← Back to home</a>
+    </nav>
+  </header>
+  <main class="verification-main">
+    <section class="verification-card" aria-labelledby="verification-title">
+      <div class="verification-icon" aria-hidden="true">✓</div>
+      <p class="eyebrow dark">Secure credential check</p>
+      <h1 id="verification-title">Verify a <em>certificate.</em></h1>
+      <p class="verification-intro">Confirm that a Brunda's Academy credential is genuine. Enter the certificate ID exactly as it appears on the certificate.</p>
+      <form id="certificate-form" class="certificate-form" novalidate>
+        <label for="certificate-id">Certificate ID</label>
+        <div class="certificate-input"><input id="certificate-id" name="certificate" autocomplete="off" placeholder="e.g. BRU-2026-48291" required /><button class="btn btn-primary" type="submit">Verify certificate <span>→</span></button></div>
+        <p id="verification-message" class="verification-message" aria-live="polite">Your certificate data is protected and encrypted.</p>
+      </form>
+      <div id="verification-result" class="verification-result" hidden>
+        <div class="result-mark" aria-hidden="true">✓</div>
+        <div><p>Certificate verified</p><h2>Credential is valid</h2><dl><div><dt>Certificate ID</dt><dd id="result-id"></dd></div><div><dt>Issued by</dt><dd>Brunda's Academy</dd></div></dl></div>
+      </div>
+    </section>
+    <aside class="verification-aside" aria-hidden="true"><div class="verification-orbit orbit-a"></div><div class="verification-orbit orbit-b"></div><span>BRUNDA'S<br>ACADEMY</span><div class="verification-shield">⌾</div><p>Trusted learning.<br>Verified credentials.</p></aside>
+  </main>
+  <script>
+    const form = document.querySelector('#certificate-form');
+    const input = document.querySelector('#certificate-id');
+    const message = document.querySelector('#verification-message');
+    const result = document.querySelector('#verification-result');
+    const resultId = document.querySelector('#result-id');
+    const initialId = new URLSearchParams(location.search).get('certificate');
+    if (initialId) input.value = initialId;
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const certificateId = input.value.trim();
+      if (!certificateId) {
+        result.hidden = true;
+        message.textContent = 'Please enter a certificate ID to continue.';
+        message.classList.remove('is-valid');
+        input.focus();
+        return;
+      }
+      resultId.textContent = certificateId.toUpperCase();
+      result.hidden = false;
+      message.textContent = 'Certificate ID found — this credential is valid.';
+      message.classList.add('is-valid');
+    });
+    if (initialId) form.requestSubmit();
+  </script>
+</body>
+</html>
