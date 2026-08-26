@@ -1,0 +1,5 @@
+[functions.contact-enquiry]
+verify_jwt = false
+
+[functions.certificate-verify]
+verify_jwt = false

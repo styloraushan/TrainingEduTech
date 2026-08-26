@@ -1,0 +1,29 @@
+.verification-result > div:last-child {
+  min-width: 0;
+  flex: 1;
+}
+
+.verification-result h2 {
+  margin: 4px 0 13px;
+  color: var(--ink);
+  font: 800 22px/1.15 'Manrope', sans-serif;
+  letter-spacing: -1px;
+}
+
+.verification-result dl {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.verification-result dd {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 520px) {
+  .verification-result {
+    align-items: flex-start;
+  }
+
+  .verification-result dl {
+    grid-template-columns: 1fr;
+  }
+}

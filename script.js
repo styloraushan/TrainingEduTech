@@ -33,8 +33,21 @@ const openContactPopupOnce=()=>{
   if(!localStorage.getItem(contactPopupStorageKey)) openContactPopup();
 };
 contactPopup.querySelectorAll('[data-contact-popup-close]').forEach(element=>element.addEventListener('click',closeContactPopup));
+const submitContactForm=async form=>{
+  const message=form.querySelector('.form-message'),submitButton=form.querySelector('button[type="submit"]');
+  if(!window.CONTACT_API_URL){message.textContent='Enquiries are not configured yet. Please contact us directly.';return;}
+  submitButton.disabled=true;message.textContent='Sending your enquiry…';
+  try{
+    const response=await fetch(window.CONTACT_API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:form.elements.name.value,email:form.elements.email.value,phone:form.elements.phone?.value,message:form.elements.message?.value,interest:form.elements.interest.value,website:form.elements.website.value})});
+    const body=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(body.error||'We could not send your enquiry.');
+    message.textContent='Thanks — your enquiry has been sent. We’ll be in touch shortly.';
+    form.reset();localStorage.setItem(contactPopupStorageKey,'true');
+  }catch(error){message.textContent=error.message||'We could not send your enquiry. Please try again.';}finally{submitButton.disabled=false;}
+};
 contactPopup.querySelector('.contact-popup-form').addEventListener('submit',event=>{
   event.preventDefault();
+  return submitContactForm(event.currentTarget);
   event.currentTarget.querySelector('.form-message').textContent='Thanks — your enquiry has been sent. We’ll be in touch shortly.';
   event.currentTarget.reset();
   localStorage.setItem(contactPopupStorageKey,'true');
@@ -71,4 +84,7 @@ document.querySelectorAll('.nav-drop button').forEach(btn=>btn.addEventListener(
 document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
 document.querySelectorAll('.course-tabs button').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.course-tabs button').forEach(tab=>{const selected=tab===button;tab.classList.toggle('selected',selected);tab.setAttribute('aria-selected',selected)});const f=button.dataset.filter;document.querySelectorAll('.course-card').forEach(card=>card.style.display=(f==='all'||card.dataset.category===f)?'block':'none')}));
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-document.querySelector('.contact-form').addEventListener('submit',e=>{e.preventDefault();e.currentTarget.querySelector('.form-message').textContent='Thanks — your enquiry has been sent. We’ll be in touch shortly.';e.currentTarget.reset()});
+document.querySelector('.contact-form').addEventListener('submit',event=>{
+  event.preventDefault();
+  submitContactForm(event.currentTarget);
+});

@@ -1,0 +1,1 @@
+window.CONTACT_API_URL = 'https://tvquwukbcruryrkhqkkc.supabase.co/functions/v1/contact-enquiry';
