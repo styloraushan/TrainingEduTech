@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="responsive.css" />
   <link rel="stylesheet" href="certificate-verification.css" />
+  <link rel="stylesheet" href="certificate-verification-fix.css" />
 </head>
 <body class="verification-page">
   <div class="announcement"><span>Admissions open for the September cohort</span><a href="index.html#courses">View programs <span>→</span></a></div>
@@ -33,17 +34,22 @@
       </form>
       <div id="verification-result" class="verification-result" hidden>
         <div class="result-mark" aria-hidden="true">✓</div>
-        <div><p>Certificate verified</p><h2>Credential is valid</h2><dl><div><dt>Certificate ID</dt><dd id="result-id"></dd></div><div><dt>Issued by</dt><dd>Brunda's Academy</dd></div></dl></div>
+        <div><p>Certificate verified</p><h2>Credential is valid</h2><dl><div><dt>Certificate ID</dt><dd id="result-id"></dd></div><div><dt>Learner</dt><dd id="result-learner"></dd></div><div><dt>Course</dt><dd id="result-course"></dd></div><div><dt>Issued on</dt><dd id="result-issued-at"></dd></div><div><dt>Issued by</dt><dd>Brunda's Academy</dd></div></dl></div>
       </div>
     </section>
     <aside class="verification-aside" aria-hidden="true"><div class="verification-orbit orbit-a"></div><div class="verification-orbit orbit-b"></div><span>BRUNDA'S<br>ACADEMY</span><div class="verification-shield">⌾</div><p>Trusted learning.<br>Verified credentials.</p></aside>
   </main>
+  <script src="contact-config.js"></script>
+  <script src="certificate-verification.js"></script>
   <script>
     const form = document.querySelector('#certificate-form');
     const input = document.querySelector('#certificate-id');
     const message = document.querySelector('#verification-message');
     const result = document.querySelector('#verification-result');
     const resultId = document.querySelector('#result-id');
+    const resultLearner = document.querySelector('#result-learner');
+    const resultCourse = document.querySelector('#result-course');
+    const resultIssuedAt = document.querySelector('#result-issued-at');
     const initialId = new URLSearchParams(location.search).get('certificate');
     if (initialId) input.value = initialId;
     form.addEventListener('submit', (event) => {
