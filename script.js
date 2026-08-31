@@ -9,7 +9,7 @@ window.addEventListener('load',()=>{
   const remainingTime = Math.max(0, minimumSkeletonDuration - (Date.now() - skeletonStartedAt));
   setTimeout(()=>{
     document.body.classList.replace('is-loading','is-loaded');
-    openContactPopupOnce();
+    // openContactPopupOnce();
   }, remainingTime);
 });
 const contactPopup=document.querySelector('.contact-popup');
