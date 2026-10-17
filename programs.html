@@ -1,1 +1,336 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="description" content="Explore Brunda's Academy industry-ready programmes."><title>All Programs | Brunda's Academy</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="responsive.css"><link rel="stylesheet" href="programs.css"></head><body class="programs-page"><div class="announcement"><span>Admissions open for the September cohort</span><a href="#programs">View programs →</a></div><header class="nav-wrap"><nav class="navbar"><a href="index.html" class="brand"><img class="brand-mark" src="assets/ChatGPT Image Aug 21, 2026, 02_54_29 PM.png" alt="Brunda's Academy"><span>Brunda's Academy</span></a><a class="programs-back" href="index.html">← Back to home</a></nav></header><main id="programs"><section class="programs-hero"><p class="eyebrow dark">Find your next skill</p><h1>Explore all<br><em>programs.</em></h1><p>Practical, mentor-led learning paths built for the careers employers need now.</p></section><section class="programs-catalogue"><div class="programs-filter" role="tablist"><button class="selected" data-filter="all">All programs</button><button data-filter="technical">Technical</button><button data-filter="business">Business & creative</button></div><div class="programs-grid"><article class="program-card" data-category="technical"><div class="program-art art-dev">⌘</div><p>Technical · 16 weeks</p><h2>Full Stack Development</h2><span>Build modern web applications from front end to deployment.</span><a href="index.html#contact">Enquire now →</a></article><article class="program-card" data-category="technical"><div class="program-art art-cyber">⌾</div><p>Technical · 14 weeks</p><h2>Cyber Security</h2><span>Learn ethical hacking, network defence, and security operations.</span><a href="index.html#contact">Enquire now →</a></article><article class="program-card" data-category="technical"><div class="program-art art-ai">AI</div><p>Technical · 18 weeks</p><h2>Data Science & AI</h2><span>Turn data into insight and build intelligent solutions.</span><a href="index.html#contact">Enquire now →</a></article><article class="program-card" data-category="business"><div class="program-art art-marketing">◌</div><p>Business & creative · 12 weeks</p><h2>Digital Marketing</h2><span>Plan campaigns that grow brands and reach the right audience.</span><a href="index.html#contact">Enquire now →</a></article><article class="program-card" data-category="business"><div class="program-art art-design">✦</div><p>Business & creative · 12 weeks</p><h2>UI/UX Design</h2><span>Design intuitive, polished digital experiences for real people.</span><a href="index.html#contact">Enquire now →</a></article><article class="program-card" data-category="business"><div class="program-art art-data">↗</div><p>Business & creative · 10 weeks</p><h2>Business Analytics</h2><span>Use data, dashboards, and strategy to make better decisions.</span><a href="index.html#contact">Enquire now →</a></article></div></section></main><footer class="programs-footer"><p>Not sure where to start? <a href="index.html#contact">Talk to an advisor →</a></p></footer><script>document.querySelectorAll('.programs-filter button').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.programs-filter button').forEach(item=>item.classList.toggle('selected',item===button));document.querySelectorAll('.program-card').forEach(card=>card.hidden=button.dataset.filter!=='all'&&card.dataset.category!==button.dataset.filter)}));</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore Brunda's Academy industry-ready programs." />
+  <title>All Programs | Brunda's Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <link rel="stylesheet" href="programs.css" />
+</head>
+<body class="programs-page">
+  <div class="announcement">
+    <span>Admissions open for the September cohort</span>
+    <span class="announcement-divider">|</span>
+    <a href="index.html#courses">View programs <span>→</span></a>
+  </div>
+
+  <header class="nav-wrap">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="index.html" class="brand">
+        <img class="brand-mark" src="assets/Tree of Knowledge Academy Logo.png" alt="Brunda's Academy" />
+        <div class="brand-text">
+          <span class="brand-title">BRUNDA'S</span>
+          <span class="brand-subtitle">ACADEMY</span>
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><i></i><i></i><i></i></button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="nav-drop">
+          <button type="button" class="active">Courses <span class="chevron" aria-hidden="true"></span></button>
+          <div class="drop-menu">
+            <a href="programs.html?filter=technical">Technical courses</a>
+            <a href="programs.html?filter=business">Non-technical courses</a>
+          </div>
+        </div>
+        <div class="nav-drop">
+          <button type="button">Business Partner <span class="chevron" aria-hidden="true"></span></button>
+          <div class="drop-menu">
+            <a href="partners.html#corporate">Corporate</a>
+            <a href="partners.html#colleges">Colleges</a>
+          </div>
+        </div>
+        <a href="certificate-verification.html">Verify Certificates</a>
+        <div class="nav-drop">
+          <button type="button">Services <span class="chevron" aria-hidden="true"></span></button>
+          <div class="drop-menu">
+            <a href="services.html#app-dev">App development</a>
+            <a href="services.html#web-dev">Web development</a>
+            <a href="services.html#marketing">Digital marketing</a>
+          </div>
+        </div>
+        <a class="nav-cta" href="index.html#contact">Enquire now <span>↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="programs">
+    <!-- Hero Section -->
+    <section class="programs-hero">
+      <div class="programs-hero-decor decor-tr" aria-hidden="true"></div>
+      <div class="programs-hero-decor decor-bl" aria-hidden="true"></div>
+
+      <div class="programs-hero-container">
+        <div class="programs-hero-badge">OUR FLAGSHIP CURRICULUM</div>
+        <h1>Explore all <span class="hero-highlight">programs.</span></h1>
+        <p class="programs-hero-desc">
+          Practical, mentor-led learning paths engineered for ambitious careers. Master industry tools, build production-grade portfolio projects, and earn recognized certifications.
+        </p>
+
+        <div class="programs-stats-strip">
+          <span class="programs-stat-item"><span>✓</span> 100% Practical & Lab-Based</span>
+          <span class="programs-stat-item"><span>✓</span> 1-on-1 Expert Mentorship</span>
+          <span class="programs-stat-item"><span>✓</span> Portfolio Capstone Projects</span>
+          <span class="programs-stat-item"><span>✓</span> Career Placement Support</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catalogue & Cards -->
+    <section class="programs-catalogue">
+      <div class="programs-filter-wrap">
+        <div class="programs-filter" role="tablist" aria-label="Program categories">
+          <button class="selected" data-filter="all" role="tab" aria-selected="true">All Programs</button>
+          <button data-filter="technical" role="tab" aria-selected="false">Technical</button>
+          <button data-filter="business" role="tab" aria-selected="false">Business & Creative</button>
+        </div>
+        <span class="programs-count" id="programs-count">Showing 6 programs</span>
+      </div>
+
+      <div class="programs-grid">
+        <!-- 1: Full Stack Development -->
+        <article class="program-card" data-category="technical">
+          <div class="program-art art-dev">
+            <div class="program-badge-row">
+              <span class="program-category-badge">Technical</span>
+              <span class="program-duration-badge">16 Weeks</span>
+            </div>
+            <div class="program-icon-mark">&lt;/&gt;</div>
+          </div>
+          <div class="program-card-body">
+            <div class="program-meta">
+              <span>Beginner friendly</span>
+              <span>•</span>
+              <span>Live + Projects</span>
+            </div>
+            <h2>Full Stack Development</h2>
+            <p class="program-card-desc">Design, build, and deploy complete web applications from responsive front-ends to scalable cloud databases.</p>
+            <div class="program-skills">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">REST APIs</span>
+            </div>
+            <div class="program-card-actions">
+              <a class="program-link" href="course-details.html?course=full-stack">View curriculum <span>→</span></a>
+              <a class="program-enquire-btn" href="index.html#contact">Enquire ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2: Cyber Security -->
+        <article class="program-card" data-category="technical">
+          <div class="program-art art-cyber">
+            <div class="program-badge-row">
+              <span class="program-category-badge">Technical</span>
+              <span class="program-duration-badge">14 Weeks</span>
+            </div>
+            <div class="program-icon-mark">◈</div>
+          </div>
+          <div class="program-card-body">
+            <div class="program-meta">
+              <span>Hands-on labs</span>
+              <span>•</span>
+              <span>High demand</span>
+            </div>
+            <h2>Cyber Security</h2>
+            <p class="program-card-desc">Master defensive security, ethical hacking fundamentals, vulnerability assessments, and threat mitigation.</p>
+            <div class="program-skills">
+              <span class="skill-tag">Ethical Hacking</span>
+              <span class="skill-tag">Network Defense</span>
+              <span class="skill-tag">SIEM</span>
+              <span class="skill-tag">Linux</span>
+              <span class="skill-tag">Wireshark</span>
+            </div>
+            <div class="program-card-actions">
+              <a class="program-link" href="course-details.html?course=cyber-security">View curriculum <span>→</span></a>
+              <a class="program-enquire-btn" href="index.html#contact">Enquire ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3: Data Science & AI -->
+        <article class="program-card" data-category="technical">
+          <div class="program-art art-ai">
+            <div class="program-badge-row">
+              <span class="program-category-badge">Technical</span>
+              <span class="program-duration-badge">18 Weeks</span>
+            </div>
+            <div class="program-icon-mark">AI</div>
+          </div>
+          <div class="program-card-body">
+            <div class="program-meta">
+              <span>Portfolio ready</span>
+              <span>•</span>
+              <span>Next-gen skills</span>
+            </div>
+            <h2>Data Science & AI</h2>
+            <p class="program-card-desc">Transform raw data into predictive intelligence with modern machine learning algorithms and neural networks.</p>
+            <div class="program-skills">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Machine Learning</span>
+              <span class="skill-tag">Pandas</span>
+              <span class="skill-tag">TensorFlow</span>
+              <span class="skill-tag">SQL</span>
+            </div>
+            <div class="program-card-actions">
+              <a class="program-link" href="course-details.html?course=data-science-ai">View curriculum <span>→</span></a>
+              <a class="program-enquire-btn" href="index.html#contact">Enquire ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4: Digital Marketing -->
+        <article class="program-card" data-category="business">
+          <div class="program-art art-marketing">
+            <div class="program-badge-row">
+              <span class="program-category-badge">Business & Creative</span>
+              <span class="program-duration-badge">12 Weeks</span>
+            </div>
+            <div class="program-icon-mark">◎</div>
+          </div>
+          <div class="program-card-body">
+            <div class="program-meta">
+              <span>Live campaigns</span>
+              <span>•</span>
+              <span>Growth track</span>
+            </div>
+            <h2>Digital Marketing</h2>
+            <p class="program-card-desc">Plan, execute, and optimize multi-channel performance marketing campaigns that generate measurable ROI.</p>
+            <div class="program-skills">
+              <span class="skill-tag">SEO</span>
+              <span class="skill-tag">Meta Ads</span>
+              <span class="skill-tag">Google Ads</span>
+              <span class="skill-tag">Analytics</span>
+              <span class="skill-tag">Content Strategy</span>
+            </div>
+            <div class="program-card-actions">
+              <a class="program-link" href="course-details.html?course=digital-marketing">View curriculum <span>→</span></a>
+              <a class="program-enquire-btn" href="index.html#contact">Enquire ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5: UI/UX Design -->
+        <article class="program-card" data-category="business">
+          <div class="program-art art-design">
+            <div class="program-badge-row">
+              <span class="program-category-badge">Business & Creative</span>
+              <span class="program-duration-badge">12 Weeks</span>
+            </div>
+            <div class="program-icon-mark">✦</div>
+          </div>
+          <div class="program-card-body">
+            <div class="program-meta">
+              <span>Case-study portfolio</span>
+              <span>•</span>
+              <span>User-centric</span>
+            </div>
+            <h2>UI/UX Design</h2>
+            <p class="program-card-desc">Conduct user research, design wireframes, build high-fidelity interactive prototypes, and create design systems.</p>
+            <div class="program-skills">
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">User Research</span>
+              <span class="skill-tag">Prototyping</span>
+              <span class="skill-tag">Design Systems</span>
+              <span class="skill-tag">Usability</span>
+            </div>
+            <div class="program-card-actions">
+              <a class="program-link" href="course-details.html?course=ui-ux-design">View curriculum <span>→</span></a>
+              <a class="program-enquire-btn" href="index.html#contact">Enquire ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6: Business Analytics -->
+        <article class="program-card" data-category="business">
+          <div class="program-art art-data">
+            <div class="program-badge-row">
+              <span class="program-category-badge">Business & Creative</span>
+              <span class="program-duration-badge">10 Weeks</span>
+            </div>
+            <div class="program-icon-mark">↗</div>
+          </div>
+          <div class="program-card-body">
+            <div class="program-meta">
+              <span>Executive dashboards</span>
+              <span>•</span>
+              <span>Strategic insight</span>
+            </div>
+            <h2>Business Analytics</h2>
+            <p class="program-card-desc">Leverage modern business intelligence tools to translate complex data into actionable leadership strategies.</p>
+            <div class="program-skills">
+              <span class="skill-tag">Power BI</span>
+              <span class="skill-tag">Tableau</span>
+              <span class="skill-tag">Excel Modeling</span>
+              <span class="skill-tag">Data Storytelling</span>
+              <span class="skill-tag">KPIs</span>
+            </div>
+            <div class="program-card-actions">
+              <a class="program-link" href="course-details.html?course=business-analytics">View curriculum <span>→</span></a>
+              <a class="program-enquire-btn" href="index.html#contact">Enquire ↗</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Bottom Advisor Banner -->
+      <div class="programs-advisor-banner">
+        <div class="advisor-copy">
+          <h3>Not sure which program matches your goals?</h3>
+          <p>Connect with our learning advisors for personalized track recommendations, schedule options, and cohort enrollment details.</p>
+        </div>
+        <a class="btn btn-primary" href="index.html#contact">Talk to an advisor <span>→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="programs-footer">
+    <p>© 2026 Brunda's Academy. All rights reserved. <a href="index.html#contact">Get in touch with an advisor →</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const filterButtons = document.querySelectorAll('.programs-filter button');
+    const cards = document.querySelectorAll('.program-card');
+    const countEl = document.querySelector('#programs-count');
+
+    function applyProgramFilter(filter) {
+      filterButtons.forEach(b => {
+        const isMatch = b.getAttribute('data-filter') === filter;
+        b.classList.toggle('selected', isMatch);
+        b.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+      });
+
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const isVisible = filter === 'all' || category === filter;
+        card.style.display = isVisible ? 'flex' : 'none';
+        if (isVisible) visibleCount++;
+      });
+
+      if (countEl) {
+        countEl.textContent = `Showing ${visibleCount} ${visibleCount === 1 ? 'program' : 'programs'}`;
+      }
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        applyProgramFilter(button.getAttribute('data-filter'));
+      });
+    });
+
+    const urlFilter = new URLSearchParams(location.search).get('filter');
+    if (urlFilter && (urlFilter === 'technical' || urlFilter === 'business')) {
+      applyProgramFilter(urlFilter);
+    }
+  </script>
+</body>
+</html>

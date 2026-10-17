@@ -70,18 +70,55 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCourseModal();
 const dots = [...document.querySelectorAll('.slide-dots button')];
 const slideCount = document.querySelector('.slide-count');
 let current = 0, timer;
-function showSlide(index) { current = (index + slides.length) % slides.length; slides.forEach((s,i)=>s.classList.toggle('active',i===current)); dots.forEach((d,i)=>d.classList.toggle('active',i===current)); slideCount.textContent=`${String(current+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`; }
-function autoplay(){clearInterval(timer);timer=setInterval(()=>showSlide(current+1),6500)}
-document.querySelector('.next').addEventListener('click',()=>{showSlide(current+1);autoplay()});
-document.querySelector('.previous').addEventListener('click',()=>{showSlide(current-1);autoplay()});
-dots.forEach((dot,i)=>dot.addEventListener('click',()=>{showSlide(i);autoplay()})); autoplay();
+function showSlide(index) {
+  current = (index + slides.length) % slides.length;
+  slides.forEach((s,i)=>s.classList.toggle('active',i===current));
+  dots.forEach((d,i)=>d.classList.toggle('active',i===current));
+  if(slideCount) slideCount.textContent=`${String(current+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
+}
+function autoplay(){clearInterval(timer);timer=setInterval(()=>showSlide(current+1),5500)}
+const nextBtn=document.querySelector('.next'), prevBtn=document.querySelector('.previous');
+if(nextBtn) nextBtn.addEventListener('click',()=>{showSlide(current+1);autoplay()});
+if(prevBtn) prevBtn.addEventListener('click',()=>{showSlide(current-1);autoplay()});
+dots.forEach((dot,i)=>dot.addEventListener('click',()=>{showSlide(i);autoplay()}));
+if(hero){
+  hero.addEventListener('mouseenter',()=>clearInterval(timer));
+  hero.addEventListener('mouseleave',autoplay);
+}
+autoplay();
 let touchStartX=0;
-document.querySelector('.hero').addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].screenX},{passive:true});
-document.querySelector('.hero').addEventListener('touchend',e=>{const distance=e.changedTouches[0].screenX-touchStartX;if(Math.abs(distance)>45){showSlide(current+(distance<0?1:-1));autoplay()}},{passive:true});
+document.querySelector('.hero')?.addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].screenX},{passive:true});
+document.querySelector('.hero')?.addEventListener('touchend',e=>{const distance=e.changedTouches[0].screenX-touchStartX;if(Math.abs(distance)>45){showSlide(current+(distance<0?1:-1));autoplay()}},{passive:true});
 const toggle=document.querySelector('.menu-toggle'), nav=document.querySelector('.nav-links');
-toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',open)});
-document.querySelectorAll('.nav-drop button').forEach(btn=>btn.addEventListener('click',()=>{if(innerWidth<=680) btn.parentElement.classList.toggle('open')}));
-document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+if (toggle && nav) {
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+}
+document.querySelectorAll('.nav-drop > button').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const parent = btn.parentElement;
+    const wasOpen = parent.classList.contains('open');
+    document.querySelectorAll('.nav-drop.open').forEach(el => el.classList.remove('open'));
+    if (!wasOpen) parent.classList.add('open');
+  });
+});
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-drop')) {
+    document.querySelectorAll('.nav-drop.open').forEach(el => el.classList.remove('open'));
+  }
+});
+
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    nav?.classList.remove('open');
+    document.querySelectorAll('.nav-drop.open').forEach(el => el.classList.remove('open'));
+  });
+});
+
 document.querySelectorAll('.course-tabs button').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.course-tabs button').forEach(tab=>{const selected=tab===button;tab.classList.toggle('selected',selected);tab.setAttribute('aria-selected',selected)});const f=button.dataset.filter;document.querySelectorAll('.course-card').forEach(card=>card.style.display=(f==='all'||card.dataset.category===f)?'block':'none')}));
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 document.querySelector('.contact-form').addEventListener('submit',event=>{

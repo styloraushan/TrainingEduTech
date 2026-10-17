@@ -11,63 +11,171 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="responsive.css" />
   <link rel="stylesheet" href="certificate-verification.css" />
-  <link rel="stylesheet" href="certificate-verification-fix.css" />
 </head>
 <body class="verification-page">
-  <div class="announcement"><span>Admissions open for the September cohort</span><a href="index.html#courses">View programs <span>→</span></a></div>
+  <div class="announcement">
+    <span>Admissions open for the September cohort</span>
+    <span class="announcement-divider">|</span>
+    <a href="index.html#courses">View programs <span>→</span></a>
+  </div>
   <header class="nav-wrap">
     <nav class="navbar" aria-label="Main navigation">
-      <a href="index.html" class="brand"><img class="brand-mark" src="assets/ChatGPT Image Aug 21, 2026, 02_54_29 PM.png" alt="Brunda's Academy" /><span>Brunda's Academy</span></a>
-      <a class="verification-back" href="index.html">← Back to home</a>
+      <a href="index.html" class="brand">
+        <img class="brand-mark" src="assets/Tree of Knowledge Academy Logo.png" alt="Brunda's Academy" />
+        <div class="brand-text">
+          <span class="brand-title">BRUNDA'S</span>
+          <span class="brand-subtitle">ACADEMY</span>
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><i></i><i></i><i></i></button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="nav-drop">
+          <button type="button">Courses <span class="chevron" aria-hidden="true"></span></button>
+          <div class="drop-menu">
+            <a href="programs.html?filter=technical">Technical courses</a>
+            <a href="programs.html?filter=business">Non-technical courses</a>
+          </div>
+        </div>
+        <div class="nav-drop">
+          <button type="button">Business Partner <span class="chevron" aria-hidden="true"></span></button>
+          <div class="drop-menu">
+            <a href="partners.html#corporate">Corporate</a>
+            <a href="partners.html#colleges">Colleges</a>
+          </div>
+        </div>
+        <a class="active" href="certificate-verification.html">Verify Certificates</a>
+        <div class="nav-drop">
+          <button type="button">Services <span class="chevron" aria-hidden="true"></span></button>
+          <div class="drop-menu">
+            <a href="services.html#app-dev">App development</a>
+            <a href="services.html#web-dev">Web development</a>
+            <a href="services.html#marketing">Digital marketing</a>
+          </div>
+        </div>
+        <a class="nav-cta" href="index.html#contact">Enquire now <span>↗</span></a>
+      </div>
     </nav>
   </header>
+
   <main class="verification-main">
-    <section class="verification-card" aria-labelledby="verification-title">
-      <div class="verification-icon" aria-hidden="true">✓</div>
-      <p class="eyebrow dark">Secure credential check</p>
-      <h1 id="verification-title">Verify a <em>certificate.</em></h1>
-      <p class="verification-intro">Confirm that a Brunda's Academy credential is genuine. Enter the certificate ID exactly as it appears on the certificate.</p>
-      <form id="certificate-form" class="certificate-form" novalidate>
-        <label for="certificate-id">Certificate ID(For demo - BRU-2026-48291)</label>
-        <div class="certificate-input"><input id="certificate-id" name="certificate" autocomplete="off" placeholder="e.g. BRU-2026-48291" required /><button class="btn btn-primary" type="submit">Verify certificate <span>→</span></button></div>
-        <p id="verification-message" class="verification-message" aria-live="polite">Your certificate data is protected and encrypted.</p>
-      </form>
-      <div id="verification-result" class="verification-result" hidden>
-        <div class="result-mark" aria-hidden="true">✓</div>
-        <div><p>Certificate verified</p><h2>Credential is valid</h2><dl><div><dt>Certificate ID</dt><dd id="result-id"></dd></div><div><dt>Learner</dt><dd id="result-learner"></dd></div><div><dt>Course</dt><dd id="result-course"></dd></div><div><dt>Issued on</dt><dd id="result-issued-at"></dd></div><div><dt>Issued by</dt><dd>Brunda's Academy</dd></div></dl></div>
+    <!-- ROW 1: Verification Station -->
+    <section class="verification-row-search" aria-labelledby="verification-title">
+      <div class="verification-card">
+        <div class="verification-card-decor decor-tr" aria-hidden="true"></div>
+        <div class="verification-card-decor decor-bl" aria-hidden="true"></div>
+
+        <div class="verification-card-header">
+          <div class="verification-badge">
+            <span class="verification-badge-icon">✓</span>
+            OFFICIAL CREDENTIAL REGISTRY
+          </div>
+          <h1 id="verification-title">Verify a <em>certificate.</em></h1>
+          <p class="verification-intro">Confirm the authenticity of a Brunda's Academy credential. Enter the unique certificate ID printed on the certificate to inspect verified learner data in real time.</p>
+        </div>
+
+        <form id="certificate-form" class="certificate-form" novalidate>
+          <div class="search-input-wrap">
+            <span class="search-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </span>
+            <input
+              id="certificate-id"
+              name="certificate"
+              type="text"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="Enter Certificate ID (e.g. BRU-2026-48291)"
+              required
+            />
+            <button class="btn btn-primary" type="submit">Verify certificate <span>→</span></button>
+          </div>
+
+          <div class="form-helper">
+            <div class="demo-chip-box">
+              <span>Try sample ID:</span>
+              <button type="button" class="demo-chip-btn" data-sample="BRU-2026-48291">BRU-2026-48291</button>
+              <button type="button" class="demo-chip-btn" data-sample="BRU-2026-10492">BRU-2026-10492</button>
+            </div>
+            <p id="verification-message" class="verification-message" aria-live="polite">
+              Data is encrypted and cross-checked against our official graduate records.
+            </p>
+          </div>
+        </form>
+
+        <!-- Verified Credential Result Card -->
+        <div id="verification-result" class="verification-result" hidden>
+          <div class="result-mark" aria-hidden="true">✓</div>
+          <div class="result-body">
+            <div class="result-header">
+              <div>
+                <span class="result-badge">Verified Credential</span>
+                <h2>Official Brunda's Academy Record</h2>
+              </div>
+            </div>
+            <dl class="result-grid">
+              <div class="result-item">
+                <dt>Certificate ID</dt>
+                <dd id="result-id">BRU-2026-48291</dd>
+              </div>
+              <div class="result-item">
+                <dt>Learner Name</dt>
+                <dd id="result-learner">Ananya Sharma</dd>
+              </div>
+              <div class="result-item">
+                <dt>Course Program</dt>
+                <dd id="result-course">Full Stack Web Development (Mastery Track)</dd>
+              </div>
+              <div class="result-item">
+                <dt>Issue Date</dt>
+                <dd id="result-issued-at">August 15, 2026</dd>
+              </div>
+              <div class="result-item">
+                <dt>Issuing Authority</dt>
+                <dd id="result-issuer">Brunda's Academy</dd>
+              </div>
+              <div class="result-item">
+                <dt>Credential Status</dt>
+                <dd style="color: #12824e;">Active & Authentic ✓</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
       </div>
     </section>
-    <aside class="verification-aside" aria-hidden="true"><div class="verification-orbit orbit-a"></div><div class="verification-orbit orbit-b"></div><span>BRUNDA'S<br>ACADEMY</span><div class="verification-shield">⌾</div><p>Trusted learning.<br>Verified credentials.</p></aside>
+
+    <!-- ROW 2: Trust & Credential Security Highlights -->
+    <section class="verification-row-info" aria-label="Credential Standards and Security">
+      <div class="verification-features-grid">
+        <article class="verify-feature-card">
+          <div class="verify-card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Tamper-Proof & Registered</h3>
+          <p>Every certificate carries a cryptographic unique ID tied directly to student performance and project assessments.</p>
+        </article>
+
+        <article class="verify-feature-card">
+          <div class="verify-card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Instant Employer Check</h3>
+          <p>Companies, recruiters, and educational institutions can confirm candidate skills in seconds without paperwork delays.</p>
+        </article>
+
+        <article class="verify-feature-card">
+          <div class="verify-card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+          </div>
+          <h3>Industry-Recognized Standard</h3>
+          <p>Credentials issued by Brunda's Academy validate real-world technical skills across modern industry technologies.</p>
+        </article>
+      </div>
+    </section>
   </main>
+
   <script src="contact-config.js"></script>
   <script src="certificate-verification.js"></script>
-  <script>
-    const form = document.querySelector('#certificate-form');
-    const input = document.querySelector('#certificate-id');
-    const message = document.querySelector('#verification-message');
-    const result = document.querySelector('#verification-result');
-    const resultId = document.querySelector('#result-id');
-    const resultLearner = document.querySelector('#result-learner');
-    const resultCourse = document.querySelector('#result-course');
-    const resultIssuedAt = document.querySelector('#result-issued-at');
-    const initialId = new URLSearchParams(location.search).get('certificate');
-    if (initialId) input.value = initialId;
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const certificateId = input.value.trim();
-      if (!certificateId) {
-        result.hidden = true;
-        message.textContent = 'Please enter a certificate ID to continue.';
-        message.classList.remove('is-valid');
-        input.focus();
-        return;
-      }
-      resultId.textContent = certificateId.toUpperCase();
-      result.hidden = false;
-      message.textContent = 'Certificate ID found — this credential is valid.';
-      message.classList.add('is-valid');
-    });
-    if (initialId) form.requestSubmit();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

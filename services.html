@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Digital Services by Brunda's Academy - App Development, Web Development, and Digital Marketing." />
+  <title>Services | Brunda's Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <link rel="stylesheet" href="services.css" />
+</head>
+<body class="services-page">
+  <div class="announcement">
+    <span>Admissions open for the September cohort</span>
+    <span class="announcement-divider">|</span>
+    <a href="programs.html">View programs <span>→</span></a>
+  </div>
+
+  <header class="nav-wrap">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="index.html" class="brand">
+        <img class="brand-mark" src="assets/Tree of Knowledge Academy Logo.png" alt="Brunda's Academy" />
+        <div class="brand-text">
+          <span class="brand-title">BRUNDA'S</span>
+          <span class="brand-subtitle">ACADEMY</span>
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><i></i><i></i><i></i></button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="nav-drop">
+          <button type="button">Courses <span class="chevron" aria-hidden="true"></span></button>
+          <div class="drop-menu">
+            <a href="programs.html?filter=technical">Technical courses</a>
+            <a href="programs.html?filter=business">Non-technical courses</a>
+          </div>
+        </div>
+        <div class="nav-drop">
+          <button type="button">Business Partner <span class="chevron" aria-hidden="true"></span></button>
+          <div class="drop-menu">
+            <a href="partners.html#corporate">Corporate</a>
+            <a href="partners.html#colleges">Colleges</a>
+          </div>
+        </div>
+        <a href="certificate-verification.html">Verify Certificates</a>
+        <div class="nav-drop">
+          <button type="button" class="active">Services <span class="chevron" aria-hidden="true"></span></button>
+          <div class="drop-menu">
+            <a href="services.html#app-dev">App development</a>
+            <a href="services.html#web-dev">Web development</a>
+            <a href="services.html#marketing">Digital marketing</a>
+          </div>
+        </div>
+        <a class="nav-cta" href="#service-enquiry">Enquire now <span>↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="services">
+    <!-- Hero Section -->
+    <section class="services-hero">
+      <div class="services-hero-decor decor-tr" aria-hidden="true"></div>
+      <div class="services-hero-decor decor-bl" aria-hidden="true"></div>
+
+      <div class="services-hero-container">
+        <div class="services-badge">BEYOND THE CLASSROOM</div>
+        <h1>Build better,<br><span class="hero-highlight">together.</span></h1>
+        <p class="services-hero-desc">
+          Bring your digital ideas to life with our team of practitioners, engineers, and growth strategists. We architect scalable mobile apps, high-performing websites, and high-ROI digital marketing engines.
+        </p>
+        <div class="services-actions">
+          <a class="btn btn-primary" href="#service-enquiry">Start a project <span>→</span></a>
+          <a class="btn btn-outline" href="#web-dev">Explore capabilities</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Deep Dive Content -->
+    <section class="services-content">
+      <!-- 1: App Development -->
+      <article id="app-dev" class="service-detail-card">
+        <div class="service-detail-copy">
+          <span class="service-tag">Mobile Engineering</span>
+          <h2>App Development &amp;<br><em>Cross-Platform Solutions.</em></h2>
+          <p>
+            We design and build intuitive, fast, and resilient mobile applications for iOS and Android. From consumer-facing apps to complex enterprise tools, we focus on frictionless user experience and robust offline capabilities.
+          </p>
+          <div class="service-tech-pills">
+            <span class="tech-pill">Flutter</span>
+            <span class="tech-pill">React Native</span>
+            <span class="tech-pill">Swift (iOS)</span>
+            <span class="tech-pill">Kotlin (Android)</span>
+            <span class="tech-pill">Firebase</span>
+          </div>
+          <ul class="service-feature-checklist">
+            <li><span>✓</span> Native &amp; hybrid mobile app engineering</li>
+            <li><span>✓</span> App Store &amp; Google Play Store launch management</li>
+            <li><span>✓</span> Real-time data sync, push notifications, &amp; biometric auth</li>
+            <li><span>✓</span> Scalable cloud backends with zero downtime deployments</li>
+          </ul>
+          <a class="btn btn-primary" href="#service-enquiry" data-service="app-development">Enquire about App Development <span>→</span></a>
+        </div>
+
+        <div class="service-visual-box">
+          <div class="service-icon-large">⌘</div>
+          <h4>What We Deliver</h4>
+          <ul>
+            <li>Custom iOS &amp; Android Apps</li>
+            <li>Cross-Platform Codebase Efficiency</li>
+            <li>End-to-End API Integration</li>
+            <li>Post-Launch Monitoring &amp; SLAs</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 2: Web Development -->
+      <article id="web-dev" class="service-detail-card reverse">
+        <div class="service-visual-box">
+          <div class="service-icon-large">◫</div>
+          <h4>What We Deliver</h4>
+          <ul>
+            <li>Full Stack Web Applications &amp; SaaS</li>
+            <li>High-Performance Next.js Architecture</li>
+            <li>E-Commerce &amp; Enterprise Portals</li>
+            <li>Continuous CI/CD Deployment</li>
+          </ul>
+        </div>
+
+        <div class="service-detail-copy">
+          <span class="service-tag">Web Platforms &amp; Cloud</span>
+          <h2>Web Development &amp;<br><em>Scalable Digital Products.</em></h2>
+          <p>
+            We build modern, lightning-fast web applications designed for conversion, accessibility, and search engine visibility. Our engineering team leverages cutting-edge frameworks and microservice patterns.
+          </p>
+          <div class="service-tech-pills">
+            <span class="tech-pill">React</span>
+            <span class="tech-pill">Next.js</span>
+            <span class="tech-pill">Node.js</span>
+            <span class="tech-pill">TypeScript</span>
+            <span class="tech-pill">PostgreSQL</span>
+            <span class="tech-pill">AWS Cloud</span>
+          </div>
+          <ul class="service-feature-checklist">
+            <li><span>✓</span> High-converting responsive landing pages &amp; portals</li>
+            <li><span>✓</span> Custom SaaS architecture &amp; dashboard systems</li>
+            <li><span>✓</span> Secure payment gateway &amp; third-party API integrations</li>
+            <li><span>✓</span> 95+ Core Web Vitals performance benchmarks</li>
+          </ul>
+          <a class="btn btn-primary" href="#service-enquiry" data-service="web-development">Enquire about Web Development <span>→</span></a>
+        </div>
+      </article>
+
+      <!-- 3: Digital Marketing -->
+      <article id="marketing" class="service-detail-card">
+        <div class="service-detail-copy">
+          <span class="service-tag">Growth &amp; Acquisition</span>
+          <h2>Digital Marketing &amp;<br><em>Performance Growth.</em></h2>
+          <p>
+            Turn attention into qualified leads and recurring revenue. We combine creative storytelling with quantitative data analytics to optimize customer acquisition cost and lifetime value.
+          </p>
+          <div class="service-tech-pills">
+            <span class="tech-pill">Meta Ads</span>
+            <span class="tech-pill">Google Ads</span>
+            <span class="tech-pill">SEO &amp; Content</span>
+            <span class="tech-pill">GA4 Analytics</span>
+            <span class="tech-pill">Conversion Rate (CRO)</span>
+          </div>
+          <ul class="service-feature-checklist">
+            <li><span>✓</span> Precision-targeted PPC &amp; social ad campaigns</li>
+            <li><span>✓</span> Technical on-page &amp; off-page SEO ranking strategies</li>
+            <li><span>✓</span> Full-funnel conversion rate optimization &amp; A/B testing</li>
+            <li><span>✓</span> Transparent ROI reporting &amp; cohort attribution</li>
+          </ul>
+          <a class="btn btn-primary" href="#service-enquiry" data-service="digital-marketing">Enquire about Digital Marketing <span>→</span></a>
+        </div>
+
+        <div class="service-visual-box">
+          <div class="service-icon-large">◌</div>
+          <h4>What We Deliver</h4>
+          <ul>
+            <li>Search Engine Optimization (SEO)</li>
+            <li>High-ROAS Paid Ad Campaigns</li>
+            <li>Funnel Optimization &amp; Lead Generation</li>
+            <li>Actionable Monthly Growth Analytics</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Service Enquiry Form -->
+      <section id="service-enquiry" class="service-form-section">
+        <div class="service-form-header">
+          <h2>Ready to build something great?</h2>
+          <p>Tell us a little about your project vision or marketing requirements. Our technical lead will reach out within one business day.</p>
+        </div>
+
+        <form class="service-form">
+          <div class="service-form-row">
+            <label>
+              Your Name
+              <input type="text" name="name" required placeholder="Your full name" />
+            </label>
+            <label>
+              Work / Business Email
+              <input type="email" name="email" required placeholder="you@company.com" />
+            </label>
+          </div>
+
+          <div class="service-form-row">
+            <label>
+              Phone Number
+              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" />
+            </label>
+            <label>
+              Service Needed
+              <select name="service" id="service-select">
+                <option value="app-dev">Mobile App Development</option>
+                <option value="web-dev">Web Application Development</option>
+                <option value="marketing">Digital Marketing & Growth</option>
+                <option value="consulting">Technology Consulting & Strategy</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Project Details
+            <textarea name="details" placeholder="Describe your product idea, timeline, target platform, or current challenges..."></textarea>
+          </label>
+
+          <button class="btn btn-primary" type="submit">Submit project enquiry <span>→</span></button>
+          <p class="service-form-message"></p>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <footer class="programs-footer">
+    <p>© 2026 Brunda's Academy. All rights reserved. <a href="index.html#contact">Get in touch →</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.querySelectorAll('[data-service]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.getAttribute('data-service');
+        const sel = document.querySelector('#service-select');
+        if (sel && val) sel.value = val.includes('app') ? 'app-dev' : (val.includes('web') ? 'web-dev' : 'marketing');
+      });
+    });
+
+    document.querySelector('.service-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const msg = e.currentTarget.querySelector('.service-form-message');
+      msg.textContent = 'Thanks! Your project inquiry has been received. Our solutions architect will contact you shortly.';
+      msg.className = 'service-form-message success';
+      e.currentTarget.reset();
+    });
+  </script>
+</body>
+</html>

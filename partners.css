@@ -1,0 +1,355 @@
+/* =========================================================
+   Partners Page Styles - Brunda's Academy
+   ========================================================= */
+.partners-page {
+  background: #f7faf7;
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.partners-page .nav-wrap {
+  background: #ffffff;
+}
+
+/* =========================================================
+   Partners Hero
+   ========================================================= */
+.partners-hero {
+  position: relative;
+  background: #e8f5ec;
+  overflow: hidden;
+  padding: 64px 24px 56px;
+}
+
+.partners-hero-decor {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.partners-hero-decor.decor-tr {
+  width: 380px;
+  height: 380px;
+  background: #d4ebd8;
+  right: -100px;
+  top: -100px;
+}
+
+.partners-hero-decor.decor-bl {
+  width: 260px;
+  height: 260px;
+  background: #ddf0e0;
+  left: -80px;
+  bottom: -60px;
+}
+
+.partners-hero-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.partners-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #167a5f;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.partners-badge::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+
+.partners-hero h1 {
+  font-family: 'Manrope', 'DM Sans', sans-serif;
+  font-weight: 800;
+  font-size: clamp(42px, 5.2vw, 68px);
+  line-height: 1.04;
+  letter-spacing: -2.5px;
+  color: #11262d;
+  margin: 0 0 18px;
+}
+
+.partners-hero h1 em,
+.partners-hero .hero-highlight {
+  font-style: normal;
+  color: #178468;
+}
+
+.partners-hero-desc {
+  max-width: 620px;
+  color: #4f6764;
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 0 0 32px;
+}
+
+.partners-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   Partners Sections (Corporate & Colleges)
+   ========================================================= */
+.partners-content {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+.partner-block {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 48px;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #dce8df;
+  border-radius: 28px;
+  padding: clamp(32px, 4.5vw, 56px);
+  box-shadow: 0 16px 40px rgba(13, 58, 48, 0.05);
+}
+
+.partner-block.reverse {
+  grid-template-columns: 1.15fr 1fr;
+}
+
+.partner-block-copy h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  color: #0d382f;
+  margin: 0 0 14px;
+  line-height: 1.15;
+}
+
+.partner-block-copy h2 em {
+  color: #178468;
+  font-style: normal;
+}
+
+.partner-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #167a5f;
+  background: #eef7f1;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+  border: 1px solid #d4ebdc;
+}
+
+.partner-block-copy p {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #556f67;
+  margin: 0 0 24px;
+}
+
+.partner-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 0 32px;
+  padding: 0;
+  list-style: none;
+}
+
+.partner-features-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #11382f;
+}
+
+.partner-features-list li span {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #cce9d6;
+  color: #115743;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.partner-card-box {
+  background: #f3f8f4;
+  border: 1px solid #d8ecde;
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.partner-metric-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.partner-metric-item {
+  background: #ffffff;
+  padding: 18px 20px;
+  border-radius: 16px;
+  border: 1px solid #d9ebdf;
+  box-shadow: 0 4px 12px rgba(13, 58, 48, 0.04);
+}
+
+.partner-metric-item b {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f4a3c;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.partner-metric-item span {
+  font-size: 12.5px;
+  color: #5f7a72;
+  font-weight: 600;
+}
+
+/* =========================================================
+   Partnership Inquiry Form Section
+   ========================================================= */
+.partners-form-section {
+  background: #ffffff;
+  border: 1px solid #dce8df;
+  border-radius: 28px;
+  padding: clamp(32px, 5vw, 60px);
+  box-shadow: 0 16px 40px rgba(13, 58, 48, 0.06);
+}
+
+.partners-form-header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 36px;
+}
+
+.partners-form-header h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 800;
+  color: #0d382f;
+  margin: 0 0 12px;
+}
+
+.partners-form-header p {
+  color: #556f67;
+  font-size: 16px;
+  margin: 0;
+}
+
+.partner-form {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.partner-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.partner-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f3d35;
+}
+
+.partner-form input,
+.partner-form select,
+.partner-form textarea {
+  width: 100%;
+  border: 1.5px solid #bcdac7;
+  border-radius: 12px;
+  padding: 13px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #11262d;
+  background: #ffffff;
+  outline: none;
+  transition: all .25s ease;
+}
+
+.partner-form input:focus,
+.partner-form select:focus,
+.partner-form textarea:focus {
+  border-color: #178468;
+  box-shadow: 0 4px 14px rgba(23, 132, 104, 0.16);
+}
+
+.partner-form textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.partner-form .btn-primary {
+  align-self: center;
+  padding: 14px 34px;
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+.partner-form-message {
+  text-align: center;
+  margin: 8px 0 0;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.partner-form-message.success {
+  color: #13824f;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .partner-block,
+  .partner-block.reverse {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .partner-form-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
