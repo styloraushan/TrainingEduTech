@@ -3,15 +3,37 @@ slides.forEach(slide=>slide.querySelector('.hero-visual').insertAdjacentHTML('be
 document.querySelectorAll('.brand > span').forEach(brandName=>brandName.textContent="Brunda's Academy");
 document.querySelectorAll('.brand-mark').forEach(brandMark=>brandMark.alt="Brunda's Academy");
 document.querySelector('.footer-bottom > span').textContent="© 2026 Brunda's Academy. All rights reserved.";
+
 const skeletonStartedAt = Date.now();
 const minimumSkeletonDuration = 2500;
-window.addEventListener('load',()=>{
-  const remainingTime = Math.max(0, minimumSkeletonDuration - (Date.now() - skeletonStartedAt));
-  setTimeout(()=>{
-    document.body.classList.replace('is-loading','is-loaded');
-    // openContactPopupOnce();
-  }, remainingTime);
-});
+let pageRevealed = false;
+
+function revealPage() {
+  if (pageRevealed) return;
+
+  pageRevealed = true;
+  document.body.classList.remove('is-loading');
+  document.body.classList.add('is-loaded');
+}
+
+function finishLoading() {
+  const elapsed = Date.now() - skeletonStartedAt;
+  const remainingTime = Math.max(
+    0,
+    minimumSkeletonDuration - elapsed
+  );
+
+  setTimeout(revealPage, remainingTime);
+}
+
+if (document.readyState === 'complete') {
+  finishLoading();
+} else {
+  window.addEventListener('load', finishLoading, { once: true });
+}
+
+// Safety fallback if the normal load event does not complete.
+setTimeout(revealPage, 6000);
 const contactPopup=document.querySelector('.contact-popup');
 const contactPopupStorageKey='brundas-academy-contact-popup-seen';
 const closeContactPopup=()=>{
